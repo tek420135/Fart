@@ -1,0 +1,2 @@
+# Minimal Python dependencies for local tooling
+# Static serving can be done via: python3 -m http.server 4173

@@ -1,165 +1,27 @@
 {
-  "name": "PotGrowHub",
-  "short_name": "GrowHub",
-  "lang": "en-US",
-  "id": "com.ganjaguru.potgrowhub",
-  "description": "PotGrowHub — an AI-powered cannabis cultivation, design, and e-commerce ecosystem. Manage grows, design brands, and connect with green tech automation tools in one place.",
+  "name": "Ghost Hemp Shop",
+  "short_name": "GhostHemp",
+  "description": "Seed-to-smoke hemp commerce concept with AI personalization, eco-friendly dropshipping, and print-on-demand workflows.",
   "start_url": "/index.html",
   "scope": "/",
   "display": "standalone",
-  "orientation": "portrait",
-  "background_color": "#1B5E20",
-  "theme_color": "#A5D6A7",
-  "categories": [
-    "productivity",
-    "business",
-    "utilities",
-    "design",
-    "shopping",
-    "green-tech",
-    "ai"
-  ],
-  "dir": "auto",
-  "iarc_rating_id": "pending",
+  "background_color": "#070711",
+  "theme_color": "#73ffbe",
+  "lang": "en-US",
+  "orientation": "portrait-primary",
+  "categories": ["shopping", "business", "lifestyle"],
   "icons": [
     {
-      "src": "frontend/assets/icons/icon-72x72.png",
-      "sizes": "72x72",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "frontend/assets/icons/icon-96x96.png",
-      "sizes": "96x96",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "frontend/assets/icons/icon-192x192.png",
+      "src": "https://dummyimage.com/192x192/070711/73ffbe.png&text=GHS",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
-      "src": "frontend/assets/icons/icon-512x512.png",
+      "src": "https://dummyimage.com/512x512/070711/73ffbe.png&text=GHS",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     }
-  ],
-  "screenshots": [
-    {
-      "src": "frontend/assets/screenshots/dashboard.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "label": "AI Grow Dashboard"
-    },
-    {
-      "src": "frontend/assets/screenshots/shop.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "label": "Marketplace & Budtender Console"
-    }
-  ],
-  "shortcuts": [
-    {
-      "name": "Open Grow Dashboard",
-      "short_name": "Dashboard",
-      "description": "Track your cultivation analytics",
-      "url": "/grow.html",
-      "icons": [
-        { "src": "frontend/assets/icons/shortcut-grow.png", "sizes": "96x96" }
-      ]
-    },
-    {
-      "name": "Shop Cannabis Strains",
-      "short_name": "Shop",
-      "description": "Browse and buy featured products",
-      "url": "/shop.html",
-      "icons": [
-        { "src": "frontend/assets/icons/shortcut-shop.png", "sizes": "96x96" }
-      ]
-    },
-    {
-      "name": "AI Budtender Chat",
-      "short_name": "Chat",
-      "description": "Talk to your AI Budtender",
-      "url": "/console.html",
-      "icons": [
-        { "src": "frontend/assets/icons/shortcut-chat.png", "sizes": "96x96" }
-      ]
-    }
-  ],
-  "related_applications": [
-    {
-      "platform": "play",
-      "url": "https://play.google.com/store/apps/details?id=com.ganjaguru.potgrowhub",
-      "id": "com.ganjaguru.potgrowhub"
-    },
-    {
-      "platform": "itunes",
-      "url": "https://apps.apple.com/app/potgrowhub/id123456789"
-    }
-  ],
-  "prefer_related_applications": false,
-  "file_handlers": [
-    {
-      "action": "/upload",
-      "accept": {
-        "image/*": [".png", ".jpg", ".jpeg", ".svg"],
-        "application/json": [".json"],
-        "text/plain": [".txt"]
-      }
-    }
-  ],
-  "protocol_handlers": [
-    {
-      "protocol": "potgrowhub",
-      "url": "/?link=%s"
-    }
-  ],
-  "share_target": {
-    "action": "/share",
-    "method": "POST",
-    "enctype": "multipart/form-data",
-    "params": {
-      "title": "title",
-      "text": "text",
-      "url": "url",
-      "files": [
-        {
-          "name": "file",
-          "accept": ["image/*", "video/*", "application/json"]
-        }
-      ]
-    }
-  },
-  "permissions": [
-    "microphone",
-    "camera",
-    "notifications",
-    "clipboard-write",
-    "storage"
-  ],
-  "launch_handler": {
-    "client_mode": "focus-existing"
-  },
-  "edge_side_panel": {
-    "preferred_width": 400
-  },
-  "display_override": [
-    "window-controls-overlay",
-    "standalone",
-    "minimal-ui"
-  ],
-  "protocols": [
-    { "name": "potgrowhub", "scheme": "potgrowhub" }
-  ],
-  "version": "1.0.0",
-  "developer": {
-    "name": "GanjaGuru Labs",
-    "url": "https://ganjagurulabs.com",
-    "email": "support@potgrowhub.com"
-  },
-  "last_updated": "2025-11-06T00:00:00Z"
+  ]
 }
