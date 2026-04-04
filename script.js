@@ -10,6 +10,10 @@ inPageLinks.forEach((link) => {
 
     event.preventDefault();
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    // UX: Ensure focus moves to target for accessibility and keyboard navigation
+    target.setAttribute('tabindex', '-1');
+    target.focus({ preventScroll: true });
   });
 });
 
