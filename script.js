@@ -10,6 +10,12 @@ inPageLinks.forEach((link) => {
 
     event.preventDefault();
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    // Accessibility: Manually shift focus to the target element
+    if (target.getAttribute('tabindex') === null) {
+      target.setAttribute('tabindex', '-1');
+    }
+    target.focus({ preventScroll: true });
   });
 });
 
@@ -20,7 +26,11 @@ const observer = new IntersectionObserver(
       const id = entry.target.getAttribute('id');
       navLinks.forEach((link) => {
         const active = link.getAttribute('href') === `#${id}`;
-        link.setAttribute('aria-current', active ? 'page' : 'false');
+        if (active) {
+          link.setAttribute('aria-current', 'page');
+        } else {
+          link.removeAttribute('aria-current');
+        }
       });
     });
   },
