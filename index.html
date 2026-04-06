@@ -1,263 +1,187 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ghost Hemp Shop | Seed-to-Smoke Vibe Commerce Engine</title>
-    <meta
-      name="description"
-      content="Ghost Hemp Shop is an end-to-end seed-to-smoke, no-inventory hemp commerce platform with AI, AR/VR, voice, POD/3D POD, eco-procurement, automated dropshipping, and dopamine-first UX."
-    />
-    <meta
-      name="keywords"
-      content="seed to smoke, hemp e-commerce, no inventory, automated dropshipping, eco procurement, AI commerce, AR, VR, voice shopping, print on demand, 3D print on demand"
-    />
-    <meta name="theme-color" content="#69ffc1" />
-    <meta name="monetization" content="$ilp.example.com/ghost-hemp-shop" />
-    <meta name="geo.region" content="US-CA" />
-    <meta name="geo.placename" content="Los Angeles" />
-    <meta name="geo.position" content="34.0522;-118.2437" />
-    <meta name="ICBM" content="34.0522, -118.2437" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PotGrowHub | The Science of Cannabis Manifestation</title>
+    <meta name="description" content="PotGrowHub: Create, grow, sell, and enjoy cannabis products with ease. The future of the modern ganjapreneur.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4caf50">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    <!-- Advanced SVG Filters for Realistic Cannabis Bud -->
+    <svg class="hidden-svg">
+        <filter id="bud-texture" x="-20%" y="-20%" width="140%" height="140%">
+            <!-- Rough base texture -->
+            <feTurbulence type="fractalNoise" baseFrequency="0.4" numOctaves="4" result="baseNoise" />
+            <feDiffuseLighting in="baseNoise" lighting-color="#2e7d32" surfaceScale="5">
+                <feDistantLight azimuth="45" elevation="40" />
+            </feDiffuseLighting>
+            <!-- Specular highlights for sticky trichomes -->
+            <feSpecularLighting in="baseNoise" surfaceScale="8" specularConstant="1.2" specularExponent="20" lighting-color="#ffffff" result="specOut">
+                <fePointLight x="100" y="50" z="200" />
+            </feSpecularLighting>
+            <feComposite in="specOut" in2="SourceGraphic" operator="in" />
+            <feComposite in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" />
+        </filter>
+        <filter id="leaf-glow">
+            <feGaussianBlur stdDeviation="3" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+    </svg>
 
-    <meta property="og:title" content="Ghost Hemp Shop | Seed-to-Smoke Vibe Commerce" />
-    <meta property="og:description" content="One-stop hemp ghost e-commerce with AI, AR/VR, voice, POD, and automated eco-fulfillment." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://ghosthempshop.example/" />
-
-    <link rel="canonical" href="https://ghosthempshop.example/" />
-    <link rel="manifest" href="manifest.json" />
-    <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml" />
-    <link rel="stylesheet" href="styles.css" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="icon" href="https://dummyimage.com/32x32/070711/69ffc1.png&text=G" type="image/png" />
-    <link rel="apple-touch-icon" href="https://dummyimage.com/180x180/070711/69ffc1.png&text=GHS" />
-
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "OnlineStore",
-        "name": "Ghost Hemp Shop",
-        "url": "https://ghosthempshop.example/",
-        "description": "End-to-end seed-to-smoke hemp ghost-commerce with AI-powered automation and immersive experiences.",
-        "currenciesAccepted": "USD",
-        "paymentAccepted": "Card, Wallet",
-        "areaServed": "US",
-        "sameAs": ["https://x.com/ghosthempshop", "https://instagram.com/ghosthempshop"]
-      }
-    </script>
-  </head>
-
-  <body>
-    <a class="skip-link" href="#main-content">Skip to main content</a>
-
-    <header id="header" class="shell glass" aria-label="Site header">
-      <a class="logo" href="#hero" aria-label="Ghost Hemp Shop home">🌿 Ghost Hemp Shop</a>
-      <nav aria-label="Primary navigation">
-        <a href="#hero">Hero</a>
-        <a href="#what-we-do">What We Do</a>
-        <a href="#how-it-works">How It Works</a>
-        <a href="#services">Services</a>
-        <a href="#store">Store</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <a class="btn ghost" href="#download-offline">Install App</a>
+    <header>
+        <nav>
+            <a href="#" class="logo">🌿 PotGrowHub</a>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#customizer">Customizer</a>
+                <a href="#mission">Mission</a>
+                <a href="#services">Services</a>
+                <a href="#faq">FAQ</a>
+            </div>
+        </nav>
     </header>
 
-    <main id="main-content">
-      <section id="hero" class="hero section" aria-labelledby="hero-title">
-        <p class="eyebrow">Seed to smoke · end-to-end · one stop hemp shop</p>
-        <h1 id="hero-title">A dopamine-smooth ghost e-commerce engine with swagger, soul, and seamless flow.</h1>
-        <p>
-          We blend vibe selling, vibe marketing, vibe advertising, no-inventory fulfillment, eco-friendly sourcing,
-          AI guidance, AR/VR immersion, voice-first buying, and POD + 3D POD production into one floating, glassy journey that keeps users locked in.
-        </p>
-        <div class="actions">
-          <a class="btn primary" href="#onboarding">Start Your Flow</a>
-          <a class="btn ghost" href="#services">Explore the Stack</a>
-          <a class="btn ghost" href="#gallery">See the Aesthetic</a>
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-bg-overlay"></div>
+            <h1>The Science of Manifestation & Attention</h1>
+            <p><strong>W</strong>hat if your wildest cannabis dreams were just a puff away? Step into the hub where the newbie meets the modern ganjapreneur.</p>
+
+            <div class="groot-container">
+                <!-- Aura Glow -->
+                <div class="groot-aura"></div>
+
+                <!-- Groot-like Female Cannabis Figure (Enhanced) -->
+                <div class="groot-figure" id="groot">
+                    <div class="trichome-shimmer"></div>
+                    <div class="groot-head">
+                        <div class="eye left"></div>
+                        <div class="eye right"></div>
+                        <!-- Pistils (Hairs) -->
+                        <div class="pistil" style="top: -5px; left: 20px; transform: rotate(-20deg);"></div>
+                        <div class="pistil" style="top: 10px; right: 15px; transform: rotate(15deg);"></div>
+                    </div>
+                    <div class="groot-body">
+                        <!-- Calyx Pods -->
+                        <div class="calyx" style="top: 20px; left: 10px;"></div>
+                        <div class="calyx" style="top: 80px; right: 20px;"></div>
+                        <div class="calyx" style="bottom: 50px; left: 30px;"></div>
+                        <!-- More Pistils -->
+                        <div class="pistil" style="top: 100px; left: -10px; transform: rotate(-45deg);"></div>
+                        <div class="pistil" style="top: 200px; right: -5px; transform: rotate(30deg);"></div>
+                    </div>
+                    <div class="leaves-container">
+                        <div class="leaf"></div>
+                        <div class="leaf"></div>
+                        <div class="leaf"></div>
+                        <div class="leaf"></div>
+                        <div class="leaf"></div>
+                        <div class="leaf"></div>
+                        <div class="leaf"></div>
+                        <div class="leaf"></div>
+                    </div>
+                    <div class="blunt">
+                        <div class="ember"></div>
+                    </div>
+                </div>
+
+                <!-- Smoke Puffs (Interactive Navigation) -->
+                <div class="smoke-puff-container">
+                    <div class="smoke-puff" style="--puff-x: 120px; --puff-y: -120px; --puff-size: 110px;" onclick="showInfo('Mission')">Mission</div>
+                    <div class="smoke-puff" style="--puff-x: 220px; --puff-y: -280px; --puff-size: 130px;" onclick="showInfo('Menu')">Menu</div>
+                    <div class="smoke-puff" style="--puff-x: 20px; --puff-y: -380px; --puff-size: 120px;" onclick="showInfo('Services')">Services</div>
+                    <div class="smoke-puff" style="--puff-x: -180px; --puff-y: -220px; --puff-size: 100px;" onclick="showInfo('Facts')">Facts</div>
+                    <div class="smoke-puff" style="--puff-x: -280px; --puff-y: -100px; --puff-size: 110px;" onclick="showInfo('Tips')">Tips</div>
+                    <div class="smoke-puff" style="--puff-x: -200px; --puff-y: -340px; --puff-size: 105px;" onclick="showInfo('Gamification')">Win</div>
+                </div>
+            </div>
+
+            <div class="search-container">
+                <div class="search-wrapper">
+                    <button class="voice-btn" id="voiceBtn" title="Voice Search">🎙️</button>
+                    <input type="text" id="searchInput" placeholder="Tell us what you want to manifest...">
+                    <button class="search-btn">Manifest</button>
+                </div>
+            </div>
+        </main>
+
+        <section id="customizer" class="customizer">
+            <h2>Immersive Customizer</h2>
+            <div class="customizer-grid">
+                <div class="customizer-preview" id="previewArea">
+                    <div class="preview-content">
+                        <h3 id="previewTitle">Your Creation</h3>
+                        <p id="previewDesc">Select a category to start building your cannabis reality.</p>
+                        <div id="virtual-overlay" class="virtual-overlay"></div>
+                    </div>
+                </div>
+                <div class="customizer-controls">
+                    <button class="control-btn" onclick="updatePreview('Custom Bong', 'Virtually design and try on your dream glass.')">Custom Bong</button>
+                    <button class="control-btn" onclick="updatePreview('Custom Pipe', 'Hand-crafted designs tailored to your style.')">Custom Pipe</button>
+                    <button class="control-btn" onclick="updatePreview('Rolling Papers', 'Branded papers for the ultimate ganjapreneur.')">Rolling Papers</button>
+                    <button class="control-btn" onclick="updatePreview('Grow Room Shelve', 'Optimize your space with custom specs.')">Grow Room Shelve</button>
+                    <button class="control-btn" onclick="updatePreview('Grow Room Bracket', 'Sturdy support for your high-yield goals.')">Grow Room Bracket</button>
+                    <button class="control-btn" onclick="updatePreview('Custom Decal', 'Stickers and decals for every surface.')">Custom Decal</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hidden Info Modal -->
+        <div id="infoModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2 id="modalTitle"></h2>
+                <div id="modalBody"></div>
+            </div>
         </div>
-        <ul class="badge-row" aria-label="Highlights">
-          <li>No Inventory</li>
-          <li>Automated Dropship</li>
-          <li>Eco Procurement</li>
-          <li>AI + AR + VR + Voice</li>
-        </ul>
-      </section>
 
-      <section id="what-we-do" class="section" aria-labelledby="what-title">
-        <h2 id="what-title">What We Do</h2>
-        <p>
-          Ghost Hemp Shop is a “seed-to-smoke” orchestration layer: suppliers, producers, creators, and delivery nodes synced in real time.
-          Think of it as a digital stage where automation does the heavy lifting and brand energy does the conversion.
-        </p>
-      </section>
+        <section id="mission">
+            <h2>Our Mission</h2>
+            <p>PotGrowHub is designed for the newbie, the mediocre user, or the modern ganjapreneur. We enable anyone to create, grow, sell, and enjoy cannabis-related products with ease and innovation. Whether you are at home, in your car, or on a mountaintop, we bring the world of cannabis to your fingertips.</p>
+        </section>
 
-      <section id="onboarding" class="section grid" aria-labelledby="onboarding-title">
-        <h2 id="onboarding-title">Onboarding</h2>
-        <article class="card"><h3>1) Enter Your Vibe</h3><p>Tell us your style, goals, and preferred effects.</p></article>
-        <article class="card"><h3>2) Build Account</h3><p><a href="#account">Create account</a>, connect payment/wallet, set delivery radius.</p></article>
-        <article class="card"><h3>3) Launch Loop</h3><p>We trigger personalized discovery, engagement, and reorder rhythm.</p></article>
-      </section>
+        <section id="services">
+            <h2>Services & Ecosystem</h2>
+            <div class="service-card">
+                <h3>For Creators</h3>
+                <p>Custom 3D-modeled bongs, pipes, and grow room specifications. Immersively interact with your designs before they manifest.</p>
+            </div>
+            <div class="service-card">
+                <h3>For Entrepreneurs</h3>
+                <p>Branded rolling papers, stickers, decals, and toys. We connect you directly with buyers worldwide.</p>
+            </div>
+            <div class="service-card">
+                <h3>For Growers</h3>
+                <p>Custom shelves, brackets, and full grow room specs tailored to any space – from a closet to a warehouse.</p>
+            </div>
+        </section>
 
-      <section id="account" class="section" aria-labelledby="account-title">
-        <h2 id="account-title">Account</h2>
-        <ul>
-          <li><a href="#features">Behavior-based recommendations</a> with optional privacy controls.</li>
-          <li><a href="#booking">Delivery windows and concierge booking</a> preferences.</li>
-          <li><a href="#help-support">In-app help center and live support</a>.</li>
-        </ul>
-      </section>
-
-      <section id="how-it-works" class="section" aria-labelledby="how-title">
-        <h2 id="how-title">How It Works</h2>
-        <ol>
-          <li>Discover curated collections in <a href="#store">Store</a>.</li>
-          <li>Preview products with <a href="#ar">AR</a> and enter worlds in <a href="#vr">VR</a>.</li>
-          <li>Use <a href="#ai">AI</a> + voice to choose, bundle, and reorder fast.</li>
-          <li>Fulfillment routes through <a href="#services">dropship + eco procurement</a>.</li>
-          <li>Track and re-engage from the <a href="#download-offline">offline-ready app</a>.</li>
-        </ol>
-      </section>
-
-      <section id="about-us" class="section" aria-labelledby="about-title">
-        <h2 id="about-title">About Us</h2>
-        <p>
-          Culture-forward and tech-native: our creative moodboard pulls from outlaw freedom, lyrical confidence, zen precision,
-          and counterculture empathy—channeling iconic inspirations into a modern commerce rhythm.
-        </p>
-      </section>
-
-      <section id="services" class="section grid" aria-labelledby="services-title">
-        <h2 id="services-title">Services</h2>
-        <article class="card"><h3>Vibe Marketing</h3><p>Story-led campaigns, social loops, and behavioral sequencing.</p></article>
-        <article class="card"><h3>Vibe Advertising</h3><p>AI-driven retargeting with ripple effects across channels.</p></article>
-        <article class="card"><h3>No-Inventory Ops</h3><p>Automated dropship and just-in-time fulfillment.</p></article>
-        <article class="card"><h3>Eco Procurement</h3><p>Supplier scoring for lower-impact sourcing and packaging.</p></article>
-      </section>
-
-      <section id="store" class="section" aria-labelledby="store-title">
-        <h2 id="store-title">Store</h2>
-        <p>Shop flower-adjacent accessories, wellness kits, limited drops, and creator collabs.</p>
-      </section>
-
-      <section id="ai" class="section" aria-labelledby="ai-title">
-        <h2 id="ai-title">AI</h2>
-        <p>Predictive bundles, persona-aware recommendations, and conversion timing that feels personal—not pushy.</p>
-      </section>
-
-      <section id="ar" class="section" aria-labelledby="ar-title">
-        <h2 id="ar-title">AR</h2>
-        <p>Try products in real space with camera overlays and contextual size/material previews.</p>
-      </section>
-
-      <section id="vr" class="section" aria-labelledby="vr-title">
-        <h2 id="vr-title">VR</h2>
-        <p>Step inside immersive storefronts with guided flows, ambient audio zones, and gamified unlockables.</p>
-      </section>
-
-      <section id="pod" class="section" aria-labelledby="pod-title">
-        <h2 id="pod-title">3DPoD / PoD</h2>
-        <p>Design once, print on demand forever: custom accessories and merch without shelf risk.</p>
-      </section>
-
-      <section id="booking" class="section" aria-labelledby="booking-title">
-        <h2 id="booking-title">Booking</h2>
-        <p>Reserve product coaching, delivery slots, creator drops, and private virtual tours.</p>
-      </section>
-
-      <section id="features" class="section" aria-labelledby="features-title">
-        <h2 id="features-title">Features</h2>
-        <ul>
-          <li>Glass-morphism + floating interface layers</li>
-          <li>Gamified streaks, rewards, and progress milestones</li>
-          <li>Voice-assisted search and checkout</li>
-          <li>Seamless flow from first click to repeat buy</li>
-        </ul>
-      </section>
-
-      <section id="download-offline" class="section" aria-labelledby="download-title">
-        <h2 id="download-title">Download / Offline</h2>
-        <p>
-          Install with <a href="manifest.json">manifest.json</a>, run offline support through <a href="sw.js">sw.js</a>,
-          and keep discovery moving even on weak networks.
-        </p>
-      </section>
-
-      <section id="faqs" class="section" aria-labelledby="faq-title">
-        <h2 id="faq-title">FAQ's</h2>
-        <details>
-          <summary>Do you keep inventory?</summary>
-          <p>No—automated dropshipping and on-demand production keep things lean.</p>
-        </details>
-        <details>
-          <summary>How do SEO + discoverability work?</summary>
-          <p>Built-in <a href="robots.txt">robots.txt</a>, <a href="sitemap.xml">sitemap.xml</a>, and schema metadata.</p>
-        </details>
-      </section>
-
-      <section id="blog" class="section" aria-labelledby="blog-title">
-        <h2 id="blog-title">Blog</h2>
-        <p>Read playbooks on growth, creative direction, fulfillment strategy, and product storytelling.</p>
-      </section>
-
-      <section id="help-support" class="section" aria-labelledby="support-title">
-        <h2 id="support-title">Help and Support</h2>
-        <p>Need anything? Visit <a href="#contact">Contact Us</a> or use your account’s live support panel.</p>
-      </section>
-
-      <section id="testimonials" class="section" aria-labelledby="testimonials-title">
-        <h2 id="testimonials-title">Testimonials</h2>
-        <blockquote>
-          “It feels like a music video and a checkout flow had a genius baby—smooth, quick, and addictive.”
-        </blockquote>
-      </section>
-
-      <section id="team" class="section" aria-labelledby="team-title">
-        <h2 id="team-title">Team</h2>
-        <p>Growth operators, creative coders, motion designers, and fulfillment architects.</p>
-      </section>
-
-      <section id="gallery" class="section" aria-labelledby="gallery-title">
-        <h2 id="gallery-title">Gallery</h2>
-        <p>Download the concept deck: <a href="Former.pdf">Former.pdf</a>.</p>
-      </section>
-
-      <section id="contact" class="section" aria-labelledby="contact-title">
-        <h2 id="contact-title">Contact Us</h2>
-        <address>
-          Ghost Hemp Shop, Los Angeles CA · <a href="mailto:hello@ghosthempshop.example">hello@ghosthempshop.example</a>
-        </address>
-      </section>
+        <section id="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="service-card">
+                <h3>Is it legal?</h3>
+                <p>We are a connection hub. Users are responsible for ensuring they comply with their local laws. We handle the innovation, you handle the manifestation.</p>
+            </div>
+            <div class="service-card">
+                <h3>Who is this for?</h3>
+                <p>Anyone 18+ worldwide who uses, eats, drinks, smokes, or grows cannabis. From newbies to pros.</p>
+            </div>
+        </section>
     </main>
 
-    <footer id="footer" class="section" aria-label="Footer">
-      <nav aria-label="Section and file links">
-        <a href="#header">Header</a>
-        <a href="#hero">Hero</a>
-        <a href="#services">Services</a>
-        <a href="#faqs">FAQ's</a>
-        <a href="#tos-privacy">ToS/Privacy</a>
-        <a href="robots.txt">robots.txt</a>
-        <a href="sitemap.xml">sitemap.xml</a>
-        <a href="manifest.json">manifest.json</a>
-        <a href="sw.js">sw.js</a>
-        <a href="package.json">package.json</a>
-        <a href="requirements.txt">requirements.txt</a>
-      </nav>
-      <section id="tos-privacy" aria-labelledby="legal-title">
-        <h2 id="legal-title">ToS / Privacy</h2>
-        <p>Using this platform means accepting service terms, privacy controls, and responsible product usage guidelines.</p>
-      </section>
+    <footer>
+        <p>&copy; 2025 PotGrowHub. No Home Base - Growing Everywhere. Embracing the Science of Silence.</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
-    <script src="script.js" defer></script>
-  </body>
+    <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js');
+        }
+    </script>
+</body>
 </html>

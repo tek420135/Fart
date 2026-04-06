@@ -1,4 +1,4 @@
-# Ghost Hemp Shop
+# PotGrowHub
 
 Seed-to-smoke, end-to-end hemp e-commerce concept focused on vibe-driven UX, no-inventory operations, and automated fulfillment.
 

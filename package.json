@@ -1,8 +1,8 @@
 {
-  "name": "ghost-hemp-shop",
+  "name": "potgrowhub",
   "version": "1.1.0",
   "private": true,
-  "description": "Ghost Hemp Shop static storefront concept",
+  "description": "PotGrowHub static storefront concept",
   "scripts": {
     "dev": "python3 -m http.server 4173",
     "start": "python3 -m http.server 4173"
