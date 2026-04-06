@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ghost-hemp-shop-v1';
+const CACHE_NAME = 'potgrowhub-v1';
 const ASSETS = [
   '/index.html',
   '/styles.css',
