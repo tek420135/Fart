@@ -23,6 +23,9 @@
     <meta property="og:description" content="One-stop hemp ghost e-commerce with AI, AR/VR, voice, POD, and automated eco-fulfillment." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://ghosthempshop.example/" />
+    <meta property="og:image" content="https://dummyimage.com/1200x630/070711/69ffc1.png&text=Ghost+Hemp+Shop" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="answer-engine-description" content="Ghost Hemp Shop is a premier seed-to-smoke hemp commerce engine integrating AI-driven insights, AR/VR immersive shopping, and eco-certified supply chains." />
 
     <link rel="canonical" href="https://ghosthempshop.example/" />
     <link rel="manifest" href="manifest.json" />
@@ -35,7 +38,6 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="icon" href="https://dummyimage.com/32x32/070711/69ffc1.png&text=G" type="image/png" />
     <link rel="apple-touch-icon" href="https://dummyimage.com/180x180/070711/69ffc1.png&text=GHS" />
 
@@ -80,8 +82,8 @@
         </p>
         <div class="actions">
           <a class="btn primary" href="#onboarding">Start Your Flow</a>
+          <a class="btn ghost" id="vr-portal-trigger" href="#vr">Enter VR Room</a>
           <a class="btn ghost" href="#services">Explore the Stack</a>
-          <a class="btn ghost" href="#gallery">See the Aesthetic</a>
         </div>
         <ul class="badge-row" aria-label="Highlights">
           <li>No Inventory</li>
@@ -257,7 +259,10 @@
       </section>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+    <button id="ganja-guru-trigger" class="glass" aria-label="Chat with GanjaGuru AI" aria-live="polite">
+      <span>🤖</span> GanjaGuru
+    </button>
+
     <script src="script.js" defer></script>
   </body>
 </html>
