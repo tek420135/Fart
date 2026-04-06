@@ -1,3 +1,4 @@
+document.documentElement.classList.add('js-enabled');
 const inPageLinks = document.querySelectorAll('a[href^="#"]');
 const sections = [...document.querySelectorAll('main section[id]')];
 const navLinks = [...document.querySelectorAll('header nav a[href^="#"]')];
@@ -20,15 +21,17 @@ inPageLinks.forEach((link) => {
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      const id = entry.target.getAttribute('id');
-      navLinks.forEach((link) => {
-        const active = link.getAttribute('href') === `#${id}`;
-        link.setAttribute('aria-current', active ? 'page' : 'false');
-      });
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach((link) => {
+          const active = link.getAttribute('href') === `#${id}`;
+          link.setAttribute('aria-current', active ? 'page' : 'false');
+        });
+      }
     });
   },
-  { rootMargin: '-45% 0px -45% 0px', threshold: 0 }
+  { rootMargin: '-10% 0px -10% 0px', threshold: 0.1 }
 );
 
 sections.forEach((section) => observer.observe(section));
@@ -41,12 +44,40 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-if (window.gsap) {
-  window.gsap.from('.section', {
-    opacity: 0,
-    y: 20,
-    duration: 0.55,
-    stagger: 0.05,
-    ease: 'power2.out'
+const vrTrigger = document.getElementById('vr-portal-trigger');
+if (vrTrigger) {
+  vrTrigger.addEventListener('click', (e) => {
+    const target = document.querySelector('#vr');
+    if (!target) return;
+
+    e.preventDefault();
+    const overlay = document.createElement('div');
+    overlay.className = 'vr-transition-overlay';
+    document.body.appendChild(overlay);
+
+    // Simulate immersive portal effect with CSS transitions
+    overlay.style.transition = 'opacity 0.4s ease';
+    requestAnimationFrame(() => {
+      overlay.style.opacity = '1';
+      setTimeout(() => {
+        target.scrollIntoView({ behavior: 'auto' });
+        target.setAttribute('tabindex', '-1');
+        target.focus({ preventScroll: true });
+
+        overlay.style.opacity = '0';
+        setTimeout(() => overlay.remove(), 800);
+      }, 400);
+    });
+  });
+}
+
+const guruBtn = document.getElementById('ganja-guru-trigger');
+if (guruBtn) {
+  guruBtn.addEventListener('click', () => {
+    const greeting = "Yo! I'm GanjaGuru. Ready to elevate your flow?";
+    guruBtn.innerHTML = `<span>🍀</span> ${greeting}`;
+    setTimeout(() => {
+      guruBtn.innerHTML = `<span>🤖</span> GanjaGuru`;
+    }, 4000);
   });
 }
