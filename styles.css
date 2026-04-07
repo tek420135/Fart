@@ -101,6 +101,10 @@ nav a:focus-visible {
   border-radius: 1rem;
 }
 
+[id] {
+  scroll-margin-top: 6rem;
+}
+
 .hero {
   padding-top: 2.4rem;
 }
