@@ -1,0 +1,3 @@
+## 2025-05-15 - Accessible Anchor Navigation and Sticky Header UX
+**Learning:** Smooth scrolling to in-page anchors often leaves keyboard and screen reader focus on the trigger element, causing confusion. Additionally, sticky headers frequently obscure the target content. Using `scroll-margin-top` provides a robust, CSS-native fix for the overlap, while programmatic focus management (using `tabindex="-1"` and `.focus()`) is necessary to align the accessibility tree with the visual scroll position.
+**Action:** When implementing anchor navigation, always pair the scroll behavior with a focus shift to the target element and ensure headings have sufficient `scroll-margin-top` to clear any persistent UI elements.

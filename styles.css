@@ -40,6 +40,7 @@ body {
   color: #fff;
   padding: 0.5rem 0.7rem;
   border-radius: 0.5rem;
+  z-index: 100;
 }
 
 .shell,
@@ -86,10 +87,12 @@ nav {
 
 nav a {
   color: var(--muted);
+  transition: color 0.2s ease;
 }
 
 nav a:hover,
-nav a:focus-visible {
+nav a:focus-visible,
+nav a[aria-current="page"] {
   color: var(--mint);
 }
 
@@ -99,6 +102,11 @@ nav a:focus-visible {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 1rem;
+  scroll-margin-top: 5rem;
+}
+
+.section:focus {
+  outline: none;
 }
 
 .hero {
