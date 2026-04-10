@@ -93,6 +93,13 @@ nav a:focus-visible {
   color: var(--mint);
 }
 
+.section,
+header[id],
+main[id],
+footer[id] {
+  scroll-margin-top: 5rem;
+}
+
 .section {
   margin-block: 1rem;
   padding: 1.2rem;
