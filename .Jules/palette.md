@@ -1,0 +1,3 @@
+## 2025-05-14 - Accessible Anchor Navigation with Sticky Headers
+**Learning:** In projects with a sticky header, smooth scrolling alone is insufficient for a good UX. Standard anchor links often result in the header obscuring the target content. Additionally, keyboard and screen reader focus remains on the clicked link, creating a disconnect for non-visual users.
+**Action:** Always apply `scroll-margin-top` to anchor targets to account for sticky header height. Use manual focus management with `target.focus({ preventScroll: true })` and `tabindex="-1"` on the target element to ensure a seamless and accessible transition for all users.
