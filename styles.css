@@ -43,9 +43,12 @@ body {
 }
 
 .shell,
+#main-content,
+footer,
 .section {
   width: min(1140px, 92%);
   margin-inline: auto;
+  scroll-margin-top: 5rem;
 }
 
 .glass {
@@ -86,10 +89,12 @@ nav {
 
 nav a {
   color: var(--muted);
+  transition: color 0.2s ease;
 }
 
 nav a:hover,
-nav a:focus-visible {
+nav a:focus-visible,
+nav a[aria-current='page'] {
   color: var(--mint);
 }
 
