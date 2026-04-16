@@ -1,0 +1,3 @@
+## 2025-05-14 - Accessible Anchor Navigation and Focus Management
+**Learning:** Smooth scrolling to internal anchors provides a good visual experience but fails to move the keyboard and screen reader focus to the target element. Without manual focus management (using `.focus()`), users relying on assistive technology or keyboard navigation remain at the starting link, creating a disconnected experience. Additionally, fixed headers can obscure the scroll target if `scroll-margin-top` is not defined.
+**Action:** Always add `tabindex="-1"` to anchor targets, shift focus programmatically after the scroll animation completes (using a short delay if necessary), and use `scroll-margin-top` to ensure the target is visible below sticky elements.
