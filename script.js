@@ -1,6 +1,12 @@
+document.documentElement.classList.add('js-enabled');
+
 const inPageLinks = document.querySelectorAll('a[href^="#"]');
 const sections = [...document.querySelectorAll('main section[id]')];
 const navLinks = [...document.querySelectorAll('header nav a[href^="#"]')];
+
+sections.forEach((section) => {
+  section.setAttribute('tabindex', '-1');
+});
 
 inPageLinks.forEach((link) => {
   link.addEventListener('click', (event) => {
@@ -10,6 +16,10 @@ inPageLinks.forEach((link) => {
 
     event.preventDefault();
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    setTimeout(() => {
+      target.focus({ preventScroll: true });
+    }, 500);
   });
 });
 
@@ -20,11 +30,15 @@ const observer = new IntersectionObserver(
       const id = entry.target.getAttribute('id');
       navLinks.forEach((link) => {
         const active = link.getAttribute('href') === `#${id}`;
-        link.setAttribute('aria-current', active ? 'page' : 'false');
+        if (active) {
+          link.setAttribute('aria-current', 'page');
+        } else {
+          link.removeAttribute('aria-current');
+        }
       });
     });
   },
-  { rootMargin: '-45% 0px -45% 0px', threshold: 0 }
+  { rootMargin: '-10% 0px -80% 0px', threshold: 0 }
 );
 
 sections.forEach((section) => observer.observe(section));
