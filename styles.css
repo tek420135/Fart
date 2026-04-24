@@ -46,6 +46,11 @@ body {
 .section {
   width: min(1140px, 92%);
   margin-inline: auto;
+  scroll-margin-top: 5rem;
+}
+
+[tabindex="-1"]:focus {
+  outline: none;
 }
 
 .glass {
@@ -66,6 +71,7 @@ header.shell {
   position: sticky;
   top: 0.8rem;
   z-index: 10;
+  scroll-margin-top: 5rem;
 }
 
 .logo,
@@ -213,6 +219,11 @@ blockquote {
   padding-left: 0.8rem;
   border-left: 3px solid var(--mint);
   color: var(--text);
+}
+
+main,
+footer {
+  scroll-margin-top: 5rem;
 }
 
 footer nav {
