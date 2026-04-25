@@ -42,6 +42,13 @@ body {
   border-radius: 0.5rem;
 }
 
+header,
+main,
+footer,
+section {
+  scroll-margin-top: 5rem;
+}
+
 .shell,
 .section {
   width: min(1140px, 92%);
