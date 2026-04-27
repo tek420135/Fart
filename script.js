@@ -5,11 +5,21 @@ const navLinks = [...document.querySelectorAll('header nav a[href^="#"]')];
 inPageLinks.forEach((link) => {
   link.addEventListener('click', (event) => {
     const targetId = link.getAttribute('href');
-    const target = targetId ? document.querySelector(targetId) : null;
+    if (!targetId || targetId === '#') return;
+    const target = document.querySelector(targetId);
     if (!target) return;
 
     event.preventDefault();
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    // Sync URL hash without jumping
+    history.pushState(null, null, targetId);
+
+    // Shift focus after scroll and GSAP animations complete
+    setTimeout(() => {
+      target.setAttribute('tabindex', '-1');
+      target.focus({ preventScroll: true });
+    }, 600);
   });
 });
 
@@ -20,7 +30,11 @@ const observer = new IntersectionObserver(
       const id = entry.target.getAttribute('id');
       navLinks.forEach((link) => {
         const active = link.getAttribute('href') === `#${id}`;
-        link.setAttribute('aria-current', active ? 'page' : 'false');
+        if (active) {
+          link.setAttribute('aria-current', 'page');
+        } else {
+          link.removeAttribute('aria-current');
+        }
       });
     });
   },
