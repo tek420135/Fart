@@ -13,6 +13,15 @@
   box-sizing: border-box;
 }
 
+:focus-visible {
+  outline: 2px solid var(--mint);
+  outline-offset: 4px;
+}
+
+[tabindex="-1"]:focus {
+  outline: none;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -36,10 +45,12 @@ body {
 .skip-link:focus {
   left: 1rem;
   top: 1rem;
-  background: #000;
-  color: #fff;
+  background: var(--mint);
+  color: var(--bg);
   padding: 0.5rem 0.7rem;
   border-radius: 0.5rem;
+  font-weight: 700;
+  z-index: 100;
 }
 
 .shell,
