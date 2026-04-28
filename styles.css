@@ -13,6 +13,15 @@
   box-sizing: border-box;
 }
 
+:focus-visible {
+  outline: 2px solid var(--mint);
+  outline-offset: 4px;
+}
+
+[tabindex="-1"]:focus {
+  outline: none;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -89,8 +98,10 @@ nav a {
 }
 
 nav a:hover,
-nav a:focus-visible {
+nav a:focus-visible,
+nav a[aria-current='page'] {
   color: var(--mint);
+  transition: color 0.2s ease;
 }
 
 .section {

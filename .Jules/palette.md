@@ -1,0 +1,3 @@
+## 2025-05-14 - Accessible Anchor Navigation & Active State
+**Learning:** For a smooth and accessible single-page navigation experience, simply using `scroll-behavior: smooth` is insufficient. Screen readers and keyboard users need programmatic focus management to follow the visual scroll. Additionally, using `aria-current='page'` with `IntersectionObserver` provides clear semantic feedback for the current section.
+**Action:** Always manually shift focus to the target element (using `tabindex='-1'` and `.focus({ preventScroll: true })`) after smooth scrolling, and sync the URL state with `history.pushState` to avoid native scroll jumps.
