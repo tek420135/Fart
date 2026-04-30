@@ -5,11 +5,19 @@ const navLinks = [...document.querySelectorAll('header nav a[href^="#"]')];
 inPageLinks.forEach((link) => {
   link.addEventListener('click', (event) => {
     const targetId = link.getAttribute('href');
+    if (targetId === '#') return;
     const target = targetId ? document.querySelector(targetId) : null;
     if (!target) return;
 
     event.preventDefault();
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    history.pushState(null, null, targetId);
+
+    // Shift focus to the target for accessibility
+    setTimeout(() => {
+      target.setAttribute('tabindex', '-1');
+      target.focus({ preventScroll: true });
+    }, 500);
   });
 });
 
@@ -19,12 +27,15 @@ const observer = new IntersectionObserver(
       if (!entry.isIntersecting) return;
       const id = entry.target.getAttribute('id');
       navLinks.forEach((link) => {
-        const active = link.getAttribute('href') === `#${id}`;
-        link.setAttribute('aria-current', active ? 'page' : 'false');
+        if (link.getAttribute('href') === `#${id}`) {
+          link.setAttribute('aria-current', 'page');
+        } else {
+          link.removeAttribute('aria-current');
+        }
       });
     });
   },
-  { rootMargin: '-45% 0px -45% 0px', threshold: 0 }
+  { rootMargin: '-10% 0px -80% 0px', threshold: 0 }
 );
 
 sections.forEach((section) => observer.observe(section));
