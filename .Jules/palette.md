@@ -1,0 +1,3 @@
+## 2025-05-14 - Accessible Smooth Scrolling & Sticky Header Compensation
+**Learning:** In single-page landing pages with sticky headers, smooth scrolling alone is insufficient for accessibility and usability. Native scroll behavior often overlaps section titles with the sticky header, and keyboard focus remains on the clicked link, breaking the experience for screen reader and keyboard users.
+**Action:** Always apply `scroll-margin-top` (e.g., `5rem`) to section targets. Use `history.pushState` to update the URL without triggering native jumps, and programmatically move focus to the target section using `tabindex="-1"` and `.focus({ preventScroll: true })` after the scroll animation completes.

@@ -17,6 +17,17 @@ html {
   scroll-behavior: smooth;
 }
 
+header,
+main,
+footer,
+.section {
+  scroll-margin-top: 5rem;
+}
+
+[tabindex="-1"]:focus {
+  outline: none;
+}
+
 body {
   margin: 0;
   font-family: Inter, system-ui, sans-serif;
@@ -86,11 +97,22 @@ nav {
 
 nav a {
   color: var(--muted);
+  transition: color 0.2s ease;
 }
 
 nav a:hover,
 nav a:focus-visible {
   color: var(--mint);
+}
+
+nav a[aria-current="page"] {
+  color: var(--mint);
+  font-weight: 700;
+}
+
+:focus-visible {
+  outline: 2px solid var(--mint);
+  outline-offset: 4px;
 }
 
 .section {
