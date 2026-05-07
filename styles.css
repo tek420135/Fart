@@ -42,6 +42,10 @@ body {
   border-radius: 0.5rem;
 }
 
+[tabindex="-1"]:focus {
+  outline: none;
+}
+
 .shell,
 .section {
   width: min(1140px, 92%);
