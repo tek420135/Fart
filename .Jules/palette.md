@@ -1,0 +1,3 @@
+## 2026-05-08 - Enhanced Navigation Experience
+**Learning:** Using IntersectionObserver for active navigation states works best when accounting for the header height in `rootMargin`. Additionally, programmatic focus management after smooth scrolling (with a slight delay) is crucial for screen reader and keyboard accessibility, preventing the focus from remaining on the clicked link while the viewport moves.
+**Action:** Apply `scroll-margin-top` to sections to prevent sticky header overlap and use a delay (e.g., 600ms) before shifting focus to the target section after a smooth scroll animation.
