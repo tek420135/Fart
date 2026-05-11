@@ -1,0 +1,3 @@
+## 2025-05-14 - Accessible Scroll Navigation with Sticky Headers
+**Learning:** For accessible anchor navigation in single-page apps with sticky headers, manual focus management is essential. Using `tabindex="-1"` on target sections and shifting focus after the scroll animation ensures screen readers and keyboard users are correctly positioned. Additionally, `scroll-margin-top` is the modern standard for preventing sticky headers from obscuring target content.
+**Action:** Always implement programmatic focus shift with a delay (e.g., 600ms) after smooth scrolls and use `scroll-margin-top` to account for header height.
