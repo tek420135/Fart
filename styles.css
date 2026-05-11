@@ -46,6 +46,7 @@ body {
 .section {
   width: min(1140px, 92%);
   margin-inline: auto;
+  scroll-margin-top: 5.5rem;
 }
 
 .glass {
@@ -89,8 +90,17 @@ nav a {
 }
 
 nav a:hover,
-nav a:focus-visible {
+nav a:focus-visible,
+nav a[aria-current="page"] {
   color: var(--mint);
+}
+
+nav a[aria-current="page"] {
+  font-weight: 700;
+}
+
+[tabindex="-1"]:focus {
+  outline: none;
 }
 
 .section {
