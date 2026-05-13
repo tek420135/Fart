@@ -45,4 +45,38 @@ if (window.gsap) {
     stagger: 0.05,
     ease: 'power2.out'
   });
+
+  const backToTop = document.getElementById('back-to-top');
+  if (backToTop) {
+    let isVisible = false;
+
+    window.addEventListener('scroll', () => {
+      const show = window.scrollY > 300;
+      if (show === isVisible) return;
+      isVisible = show;
+
+      window.gsap.to(backToTop, {
+        opacity: show ? 1 : 0,
+        visibility: show ? 'visible' : 'hidden',
+        duration: 0.3,
+        overwrite: 'auto',
+        onStart: () => {
+          if (show) backToTop.style.pointerEvents = 'auto';
+        },
+        onComplete: () => {
+          if (!show) backToTop.style.pointerEvents = 'none';
+        }
+      });
+    });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      const skipLink = document.querySelector('.skip-link');
+      if (skipLink) {
+        setTimeout(() => {
+          skipLink.focus({ preventScroll: true });
+        }, 600);
+      }
+    });
+  }
 }
