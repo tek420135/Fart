@@ -1,0 +1,3 @@
+## 2025-05-14 - [Back to Top Navigation & Focus Management]
+**Learning:** In exceptionally long single-page interfaces, scroll-based "Back to Top" buttons significantly improve usability, but can introduce accessibility regressions if not handled carefully. Simply using `opacity: 0` keeps the element in the tab order, creating a "mystery" focus stop.
+**Action:** Always use `visibility: hidden` or `display: none` in conjunction with `opacity` to remove hidden interactive elements from the accessibility tree. Additionally, programmatically shift focus to a logical start point (like a skip-link) after returning to the top to assist keyboard and screen reader users.
