@@ -17,6 +17,14 @@ html {
   scroll-behavior: smooth;
 }
 
+[tabindex="-1"]:focus {
+  outline: none;
+}
+
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
 body {
   margin: 0;
   font-family: Inter, system-ui, sans-serif;
@@ -86,11 +94,17 @@ nav {
 
 nav a {
   color: var(--muted);
+  transition: color 0.2s ease;
 }
 
 nav a:hover,
-nav a:focus-visible {
+nav a:focus-visible,
+nav a[aria-current="page"] {
   color: var(--mint);
+}
+
+nav a[aria-current="page"] {
+  font-weight: 700;
 }
 
 .section {
