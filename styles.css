@@ -93,6 +93,15 @@ nav a:focus-visible {
   color: var(--mint);
 }
 
+nav a[aria-current='page'] {
+  color: var(--mint);
+  font-weight: 700;
+}
+
+[tabindex="-1"]:focus {
+  outline: none;
+}
+
 .section {
   margin-block: 1rem;
   padding: 1.2rem;
