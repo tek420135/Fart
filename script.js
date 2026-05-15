@@ -1,6 +1,10 @@
 const inPageLinks = document.querySelectorAll('a[href^="#"]');
 const sections = [...document.querySelectorAll('main section[id]')];
 const navLinks = [...document.querySelectorAll('header nav a[href^="#"]')];
+const main = document.querySelector('main');
+
+if (main) main.setAttribute('tabindex', '-1');
+sections.forEach((s) => s.setAttribute('tabindex', '-1'));
 
 inPageLinks.forEach((link) => {
   link.addEventListener('click', (event) => {
@@ -10,6 +14,11 @@ inPageLinks.forEach((link) => {
 
     event.preventDefault();
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    history.pushState(null, null, targetId);
+    setTimeout(() => {
+      target.focus({ preventScroll: true });
+    }, 600);
   });
 });
 
@@ -24,7 +33,7 @@ const observer = new IntersectionObserver(
       });
     });
   },
-  { rootMargin: '-45% 0px -45% 0px', threshold: 0 }
+  { rootMargin: '-80px 0px -40% 0px', threshold: 0 }
 );
 
 sections.forEach((section) => observer.observe(section));
