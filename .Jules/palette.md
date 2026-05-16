@@ -1,0 +1,3 @@
+## 2025-05-14 - Sticky Header Navigation & Accessibility
+**Learning:** In single-page applications with sticky headers, smooth scrolling can obscure target content, and focus remains on the link rather than the destination, breaking screen reader flow. Tuning `IntersectionObserver` with a precise `rootMargin` (e.g., `-80px 0px -40% 0px`) is necessary to reliably track active sections, especially short ones at the page bottom.
+**Action:** Always apply `scroll-margin-top` to sections to account for sticky headers and use `setTimeout` to programmatically shift focus to the target section after smooth scroll animations complete.
