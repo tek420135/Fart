@@ -1,0 +1,3 @@
+## 2025-05-14 - Enhanced Anchor Navigation & Focus Management
+**Learning:** For single-page applications with sticky headers, combining `scroll-margin-top` with programmatic focus management (using `tabindex="-1"` and `.focus({ preventScroll: true })`) significantly improves accessibility for keyboard and screen reader users while maintaining a polished visual flow. Updating the URL hash via `history.pushState` ensures the browser doesn't perform a native "jump" that conflicts with smooth scrolling.
+**Action:** Always implement programmatic focus shifts after smooth-scrolling to anchors, and ensure `aria-current="page"` is synchronized via `IntersectionObserver` for persistent visual and semantic feedback.
