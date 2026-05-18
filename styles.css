@@ -13,6 +13,15 @@
   box-sizing: border-box;
 }
 
+:focus-visible {
+  outline: 2px solid var(--mint);
+  outline-offset: 4px;
+}
+
+[tabindex="-1"]:focus {
+  outline: none;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -93,12 +102,18 @@ nav a:focus-visible {
   color: var(--mint);
 }
 
+nav a[aria-current="page"] {
+  color: var(--mint);
+  font-weight: 700;
+}
+
 .section {
   margin-block: 1rem;
   padding: 1.2rem;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 1rem;
+  scroll-margin-top: 6rem;
 }
 
 .hero {

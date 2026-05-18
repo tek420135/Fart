@@ -1,0 +1,3 @@
+## 2025-05-14 - Accessible Smooth Scroll Navigation
+**Learning:** In single-page applications with sticky headers, simply calling `scrollIntoView` is insufficient for accessibility. Programmatically shifting focus to the target section (using `tabindex="-1"` and `.focus({ preventScroll: true })`) after the scroll animation ensures screen reader users are correctly positioned. Additionally, using a `setTimeout` (approx. 500-600ms) allows the browser's smooth scroll animation to complete before focus is applied, preventing race conditions that can disrupt the user experience.
+**Action:** Always pair smooth-scrolling in-page links with programmatic focus management and appropriate `scroll-margin-top` to account for sticky UI elements.
