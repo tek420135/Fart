@@ -5,11 +5,19 @@ const navLinks = [...document.querySelectorAll('header nav a[href^="#"]')];
 inPageLinks.forEach((link) => {
   link.addEventListener('click', (event) => {
     const targetId = link.getAttribute('href');
-    const target = targetId ? document.querySelector(targetId) : null;
+    if (!targetId || targetId === '#') return;
+    const target = document.querySelector(targetId);
     if (!target) return;
 
     event.preventDefault();
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    // UX: Shift focus to target for accessibility and sync URL hash
+    target.setAttribute('tabindex', '-1');
+    setTimeout(() => {
+      target.focus({ preventScroll: true });
+      history.pushState(null, null, targetId);
+    }, 600);
   });
 });
 
