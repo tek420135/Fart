@@ -1,0 +1,3 @@
+## 2025-05-23 - Focus Management for Smooth Scrolling
+**Learning:** Programmatic focus shifts (using `tabindex="-1"` and `.focus()`) are essential for screen reader and keyboard accessibility after smooth-scrolling to a target. However, a `setTimeout` of ~600ms is necessary to ensure the browser has completed the scroll animation before applying focus, otherwise the scroll might be interrupted or focus applied prematurely.
+**Action:** Always combine smooth scroll events with `history.pushState` for URL synchronization and a delayed `.focus()` call to the target element. Apply `scroll-padding-top` to the `html` element or `scroll-margin-top` to target sections to accommodate sticky headers.
