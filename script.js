@@ -2,29 +2,45 @@ const inPageLinks = document.querySelectorAll('a[href^="#"]');
 const sections = [...document.querySelectorAll('main section[id]')];
 const navLinks = [...document.querySelectorAll('header nav a[href^="#"]')];
 
+sections.forEach((section) => {
+  if (!section.hasAttribute('tabindex')) {
+    section.setAttribute('tabindex', '-1');
+  }
+});
+
 inPageLinks.forEach((link) => {
   link.addEventListener('click', (event) => {
     const targetId = link.getAttribute('href');
-    const target = targetId ? document.querySelector(targetId) : null;
+    if (!targetId || targetId === '#') return;
+
+    const target = document.querySelector(targetId);
     if (!target) return;
 
     event.preventDefault();
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    history.pushState(null, null, targetId);
+
+    setTimeout(() => {
+      target.focus({ preventScroll: true });
+    }, 600);
   });
 });
 
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
       const id = entry.target.getAttribute('id');
-      navLinks.forEach((link) => {
-        const active = link.getAttribute('href') === `#${id}`;
-        link.setAttribute('aria-current', active ? 'page' : 'false');
-      });
+      const link = navLinks.find((l) => l.getAttribute('href') === `#${id}`);
+      if (!link) return;
+
+      if (entry.isIntersecting) {
+        navLinks.forEach((l) => l.removeAttribute('aria-current'));
+        link.setAttribute('aria-current', 'page');
+      }
     });
   },
-  { rootMargin: '-45% 0px -45% 0px', threshold: 0 }
+  { rootMargin: '-80px 0px -40% 0px', threshold: 0 }
 );
 
 sections.forEach((section) => observer.observe(section));
