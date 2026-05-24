@@ -1,0 +1,3 @@
+## 2025-05-24 - Accessible SPA Navigation & Layout Stability
+**Learning:** In single-page applications with smooth scrolling, standard anchor links fail accessibility as they don't move keyboard/screen reader focus. Programmatically shifting focus to the target section (using `tabindex="-1"`) after the scroll completes is essential. Additionally, using `font-weight: 700` for active/hover states causes layout shift; this can be mitigated using an invisible `::after` element with the same text to reserve space.
+**Action:** Always implement focus management for in-page navigation and use the `data-text` / `::after` pattern for bold hover states to maintain layout stability.
