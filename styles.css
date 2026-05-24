@@ -15,6 +15,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
 }
 
 body {
@@ -40,6 +41,10 @@ body {
   color: #fff;
   padding: 0.5rem 0.7rem;
   border-radius: 0.5rem;
+}
+
+[tabindex="-1"]:focus {
+  outline: none;
 }
 
 .shell,
@@ -86,11 +91,27 @@ nav {
 
 nav a {
   color: var(--muted);
+  transition: color 0.2s ease;
 }
 
 nav a:hover,
-nav a:focus-visible {
+nav a:focus-visible,
+nav a[aria-current='page'] {
   color: var(--mint);
+  font-weight: 700;
+}
+
+/* Prevent layout shift on bold links */
+nav a::after {
+  content: attr(data-text);
+  content: attr(data-text) / "";
+  height: 0;
+  visibility: hidden;
+  overflow: hidden;
+  user-select: none;
+  pointer-events: none;
+  font-weight: 700;
+  display: block;
 }
 
 .section {
