@@ -5,26 +5,39 @@ const navLinks = [...document.querySelectorAll('header nav a[href^="#"]')];
 inPageLinks.forEach((link) => {
   link.addEventListener('click', (event) => {
     const targetId = link.getAttribute('href');
-    const target = targetId ? document.querySelector(targetId) : null;
+    if (!targetId || targetId === '#') return;
+    const target = document.querySelector(targetId);
     if (!target) return;
 
     event.preventDefault();
+    history.pushState(null, null, targetId);
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    setTimeout(() => {
+      target.setAttribute('tabindex', '-1');
+      target.focus({ preventScroll: true });
+    }, 600);
   });
 });
 
 const observer = new IntersectionObserver(
   (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      const id = entry.target.getAttribute('id');
+    const visibleEntries = entries
+      .filter((e) => e.isIntersecting)
+      .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+
+    if (visibleEntries.length > 0) {
+      const topEntryId = visibleEntries[0].target.getAttribute('id');
       navLinks.forEach((link) => {
-        const active = link.getAttribute('href') === `#${id}`;
-        link.setAttribute('aria-current', active ? 'page' : 'false');
+        if (link.getAttribute('href') === `#${topEntryId}`) {
+          link.setAttribute('aria-current', 'page');
+        } else {
+          link.removeAttribute('aria-current');
+        }
       });
-    });
+    }
   },
-  { rootMargin: '-45% 0px -45% 0px', threshold: 0 }
+  { rootMargin: '-94px 0px -40% 0px', threshold: 0 }
 );
 
 sections.forEach((section) => observer.observe(section));
