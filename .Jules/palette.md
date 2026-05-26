@@ -1,0 +1,3 @@
+## 2025-05-14 - Accessible Navigation & Layout-Stable Interaction
+**Learning:** In a single-page application with a sticky header, providing a smooth and accessible navigation experience requires synchronizing three layers: CSS `scroll-padding-top` to prevent title overlap, JavaScript focus management (`tabindex="-1"` and `.focus()`) to assist screen readers, and a `data-text` attribute pattern to prevent layout shifts when navigation links are bolded.
+**Action:** Always combine `scroll-padding-top` on the `html` element with manual focus shifting in smooth-scroll event listeners. Use the `::after` pseudo-element with `data-text` for hover/active bold states to ensure a jitter-free UI.

@@ -15,6 +15,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
 }
 
 body {
@@ -86,11 +87,27 @@ nav {
 
 nav a {
   color: var(--muted);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
+nav a::after {
+  content: attr(data-text);
+  height: 0;
+  visibility: hidden;
+  overflow: hidden;
+  user-select: none;
+  pointer-events: none;
+  font-weight: 700;
 }
 
 nav a:hover,
-nav a:focus-visible {
+nav a:focus-visible,
+nav a[aria-current="page"] {
   color: var(--mint);
+  font-weight: 700;
 }
 
 .section {
@@ -157,6 +174,10 @@ address {
 .btn:focus-visible {
   transform: translateY(-1px);
   box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
+}
+
+[tabindex="-1"]:focus {
+  outline: none;
 }
 
 .btn.primary {
