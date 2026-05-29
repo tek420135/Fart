@@ -1,0 +1,3 @@
+## 2025-05-15 - Improving Single-Page Navigation UX and Accessibility
+**Learning:** Sticky headers often obscure anchor link targets, breaking the visual flow. Additionally, toggling `font-weight: 700` on navigation links causes layout shifts as the text width changes.
+**Action:** Use `scroll-padding-top` on the `html` element for a global fix to anchor positioning. Implement a layout-stable bolding pattern using a hidden `::after` pseudo-element that reserves space based on the `data-text` attribute. Always shift programmatic focus to the target section after smooth scrolling to ensure screen reader and keyboard compatibility.
