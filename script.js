@@ -1,15 +1,17 @@
 const inPageLinks = document.querySelectorAll('a[href^="#"]');
 const sections = [...document.querySelectorAll('main section[id]')];
-const navLinks = [...document.querySelectorAll('header nav a[href^="#"]')];
+const navLinks = [...document.querySelectorAll('nav a[href^="#"]')];
 
 inPageLinks.forEach((link) => {
   link.addEventListener('click', (event) => {
     const targetId = link.getAttribute('href');
-    const target = targetId ? document.querySelector(targetId) : null;
+    if (!targetId || targetId === '#') return;
+    const target = document.querySelector(targetId);
     if (!target) return;
 
     event.preventDefault();
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    history.pushState(null, null, targetId);
   });
 });
 
@@ -20,7 +22,11 @@ const observer = new IntersectionObserver(
       const id = entry.target.getAttribute('id');
       navLinks.forEach((link) => {
         const active = link.getAttribute('href') === `#${id}`;
-        link.setAttribute('aria-current', active ? 'page' : 'false');
+        if (active) {
+          link.setAttribute('aria-current', 'page');
+        } else {
+          link.removeAttribute('aria-current');
+        }
       });
     });
   },
