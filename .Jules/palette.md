@@ -1,0 +1,3 @@
+## 2025-05-14 - Accessible Single-Page Navigation & IntersectionObserver
+**Learning:** Standard smooth-scrolling with hash links often fails to move programmatic focus, leaving screen reader users stuck at the top of the page. Additionally, `IntersectionObserver` needs a precise `rootMargin` to account for sticky headers and prevent multiple sections from being marked "active" simultaneously.
+**Action:** Always pair smooth-scroll with a `setTimeout` to manually shift focus to the target section (using `tabindex="-1"` and `.focus()`). Use `scroll-padding-top` on `<html>` to handle sticky header offsets globally, and sort `IntersectionObserver` entries by `boundingClientRect.top` to reliably identify the primary active section.
