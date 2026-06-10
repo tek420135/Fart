@@ -1,0 +1,3 @@
+## 2025-05-14 - Robust Single-Page Navigation
+**Learning:** Smooth scrolling alone is insufficient for accessibility; it must be coupled with programmatic focus management and hash synchronization to maintain a coherent experience for keyboard and screen reader users. Additionally, using `scroll-padding-top` on the `html` element is a more maintainable way to handle sticky headers than adding margins to individual sections.
+**Action:** Always implement a `setTimeout` (approx. 600ms) after triggering `scrollIntoView` to move focus to the target element, ensuring the browser has completed the animation before focus is applied.
