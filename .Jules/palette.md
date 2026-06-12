@@ -1,0 +1,3 @@
+## 2025-05-15 - Improved Navigation Accessibility and Sticky Header UX
+**Learning:** Sticky headers often overlap target sections when using in-page anchor links. Programmatic focus shifts are essential for screen reader users to follow the scroll, but they require careful timing and `tabindex="-1"` management to avoid visual "focus rings" on non-interactive containers.
+**Action:** Use `scroll-padding-top` on the `html` element for header clearance. Implement a `setTimeout` (approx 600ms for default smooth scroll) before shifting focus to target sections, and ensure `[tabindex="-1"]:focus { outline: none; }` is in the CSS.
