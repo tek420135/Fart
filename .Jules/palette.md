@@ -1,0 +1,3 @@
+## 2024-05-23 - Accessible Smooth Scroll and Focus Management
+**Learning:** Native CSS `scroll-behavior: smooth` does not shift keyboard focus to the target element. This leaves screen reader and keyboard users stuck at the trigger point even though the viewport has moved, creating a disconnected and confusing experience. Additionally, sticky headers often obscure the target content if `scroll-padding-top` is not defined.
+**Action:** Always pair smooth scrolling with programmatic focus management. Use `target.focus()` (and add `tabindex="-1"` if necessary) after the scroll animation. Apply `scroll-padding-top` to the `html` element to ensure content is not hidden behind persistent UI elements.
