@@ -1,0 +1,3 @@
+## 2025-05-15 - [Navigation & Focus Management]
+**Learning:** In Single Page Applications (SPAs) using smooth-scrolling, the browser does not automatically move focus to the target section. This leaves screen reader users and keyboard navigators stranded at the trigger point. Additionally, using `aria-current="false"` is a common anti-pattern; it is more accessible to remove the attribute entirely when the state is inactive.
+**Action:** Always pair smooth-scroll interactions with programmatic focus shifts (`element.focus()`) and ensure `aria-current` is only present on the active element. Use `scroll-padding-top` to account for sticky headers globally.

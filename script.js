@@ -10,6 +10,13 @@ inPageLinks.forEach((link) => {
 
     event.preventDefault();
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    // Manage focus for accessibility
+    const targetTabIndex = target.getAttribute('tabindex');
+    if (targetTabIndex === null || targetTabIndex === '') {
+      target.setAttribute('tabindex', '-1');
+    }
+    target.focus({ preventScroll: true });
   });
 });
 
@@ -20,11 +27,15 @@ const observer = new IntersectionObserver(
       const id = entry.target.getAttribute('id');
       navLinks.forEach((link) => {
         const active = link.getAttribute('href') === `#${id}`;
-        link.setAttribute('aria-current', active ? 'page' : 'false');
+        if (active) {
+          link.setAttribute('aria-current', 'page');
+        } else {
+          link.removeAttribute('aria-current');
+        }
       });
     });
   },
-  { rootMargin: '-45% 0px -45% 0px', threshold: 0 }
+  { rootMargin: '-20% 0px -20% 0px', threshold: 0.1 }
 );
 
 sections.forEach((section) => observer.observe(section));
