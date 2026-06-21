@@ -15,6 +15,11 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+[tabindex="-1"]:focus {
+  outline: none;
 }
 
 body {
@@ -89,8 +94,10 @@ nav a {
 }
 
 nav a:hover,
-nav a:focus-visible {
+nav a:focus-visible,
+nav a[aria-current="page"] {
   color: var(--mint);
+  font-weight: 700;
 }
 
 .section {
@@ -219,9 +226,32 @@ footer nav {
   margin-bottom: 0.8rem;
 }
 
+#back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 100;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+#back-to-top:not([hidden]) {
+  opacity: 1;
+  visibility: visible;
+}
+
 @media (max-width: 760px) {
   header.shell {
     flex-direction: column;
     align-items: flex-start;
+  }
+  #back-to-top {
+    bottom: 1rem;
+    right: 1rem;
   }
 }
