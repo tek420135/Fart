@@ -57,7 +57,7 @@
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <header id="header" class="shell glass" aria-label="Site header">
+    <header id="header" class="shell glass" aria-label="Site header" tabindex="-1">
       <a class="logo" href="#hero" aria-label="Ghost Hemp Shop home">🌿 Ghost Hemp Shop</a>
       <nav aria-label="Primary navigation">
         <a href="#hero">Hero</a>
@@ -70,7 +70,7 @@
       <a class="btn ghost" href="#download-offline">Install App</a>
     </header>
 
-    <main id="main-content">
+    <main id="main-content" tabindex="-1">
       <section id="hero" class="hero section" aria-labelledby="hero-title">
         <p class="eyebrow">Seed to smoke · end-to-end · one stop hemp shop</p>
         <h1 id="hero-title">A dopamine-smooth ghost e-commerce engine with swagger, soul, and seamless flow.</h1>
@@ -238,6 +238,7 @@
     </main>
 
     <footer id="footer" class="section" aria-label="Footer">
+      <button id="back-to-top" class="glass btn ghost" aria-label="Back to top" hidden>↑</button>
       <nav aria-label="Section and file links">
         <a href="#header">Header</a>
         <a href="#hero">Hero</a>
