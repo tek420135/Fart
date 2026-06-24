@@ -15,6 +15,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
@@ -78,6 +79,10 @@ a {
   font-weight: 800;
 }
 
+[tabindex="-1"]:focus {
+  outline: none;
+}
+
 nav {
   display: flex;
   flex-wrap: wrap;
@@ -89,8 +94,13 @@ nav a {
 }
 
 nav a:hover,
-nav a:focus-visible {
+nav a:focus-visible,
+nav a[aria-current="page"] {
   color: var(--mint);
+}
+
+nav a[aria-current="page"] {
+  font-weight: 800;
 }
 
 .section {
