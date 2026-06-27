@@ -29,6 +29,22 @@ const observer = new IntersectionObserver(
 
 sections.forEach((section) => observer.observe(section));
 
+const backToTop = document.getElementById('back-to-top');
+const header = document.getElementById('header');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 400) {
+    backToTop.classList.remove('hidden');
+  } else {
+    backToTop.classList.add('hidden');
+  }
+});
+
+backToTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  header.focus({ preventScroll: true });
+});
+
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/sw.js').catch((error) => {
