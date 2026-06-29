@@ -29,6 +29,18 @@ const observer = new IntersectionObserver(
 
 sections.forEach((section) => observer.observe(section));
 
+const btt = document.getElementById('back-to-top');
+if (btt) {
+  window.addEventListener('scroll', () => {
+    window.scrollY > 400 ? btt.removeAttribute('hidden') : btt.setAttribute('hidden', '');
+  });
+  btt.addEventListener('click', () => {
+    const hero = document.getElementById('hero');
+    hero?.scrollIntoView({ behavior: 'smooth' });
+    hero?.focus({ preventScroll: true });
+  });
+}
+
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/sw.js').catch((error) => {
