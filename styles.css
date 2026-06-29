@@ -219,6 +219,34 @@ footer nav {
   margin-bottom: 0.8rem;
 }
 
+#back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 100;
+  border-radius: 50%;
+  transition: opacity 0.3s, visibility 0.3s, transform 0.2s;
+}
+
+#back-to-top[hidden] {
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+}
+
+#back-to-top:hover,
+#back-to-top:focus-visible {
+  transform: scale(1.1);
+  color: var(--mint);
+}
+
 @media (max-width: 760px) {
   header.shell {
     flex-direction: column;
