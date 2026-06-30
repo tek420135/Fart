@@ -10,6 +10,7 @@ inPageLinks.forEach((link) => {
 
     event.preventDefault();
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    target.focus({ preventScroll: true });
   });
 });
 
@@ -19,8 +20,11 @@ const observer = new IntersectionObserver(
       if (!entry.isIntersecting) return;
       const id = entry.target.getAttribute('id');
       navLinks.forEach((link) => {
-        const active = link.getAttribute('href') === `#${id}`;
-        link.setAttribute('aria-current', active ? 'page' : 'false');
+        if (link.getAttribute('href') === `#${id}`) {
+          link.setAttribute('aria-current', 'page');
+        } else {
+          link.removeAttribute('aria-current');
+        }
       });
     });
   },
@@ -28,6 +32,16 @@ const observer = new IntersectionObserver(
 );
 
 sections.forEach((section) => observer.observe(section));
+
+const btt = document.getElementById('back-to-top');
+if (btt) {
+  window.addEventListener('scroll', () => btt.toggleAttribute('hidden', window.scrollY <= 400));
+  btt.addEventListener('click', () => {
+    const h = document.getElementById('hero');
+    h?.scrollIntoView({ behavior: 'smooth' });
+    h?.focus({ preventScroll: true });
+  });
+}
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
