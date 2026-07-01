@@ -10,6 +10,8 @@ inPageLinks.forEach((link) => {
 
     event.preventDefault();
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    target.focus({ preventScroll: true });
+    if (window.history.pushState) window.history.pushState(null, null, targetId);
   });
 });
 
@@ -19,16 +21,38 @@ const observer = new IntersectionObserver(
       if (!entry.isIntersecting) return;
       const id = entry.target.getAttribute('id');
       navLinks.forEach((link) => {
-        const active = link.getAttribute('href') === `#${id}`;
-        link.setAttribute('aria-current', active ? 'page' : 'false');
+        if (link.getAttribute('href') === `#${id}`) {
+          link.setAttribute('aria-current', 'page');
+        } else {
+          link.removeAttribute('aria-current');
+        }
       });
     });
   },
   { rootMargin: '-45% 0px -45% 0px', threshold: 0 }
 );
 
-sections.forEach((section) => observer.observe(section));
+sections.forEach((section) => {
+  if (!section.hasAttribute('tabindex')) section.setAttribute('tabindex', '-1');
+  observer.observe(section);
+});
 
+const backToTop = document.getElementById('backToTop');
+if (backToTop) {
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      backToTop.classList.add('visible');
+    } else {
+      backToTop.classList.remove('visible');
+    }
+  });
+
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const hero = document.getElementById('hero');
+    if (hero) hero.focus({ preventScroll: true });
+  });
+}
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/sw.js').catch((error) => {
