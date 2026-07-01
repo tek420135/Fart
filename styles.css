@@ -15,6 +15,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
@@ -224,4 +225,36 @@ footer nav {
     flex-direction: column;
     align-items: flex-start;
   }
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s, transform 0.2s;
+  background: linear-gradient(125deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.08));
+  border: 1px solid var(--line);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  color: var(--mint);
+  font-size: 1.2rem;
+}
+
+.back-to-top:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(125deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.12));
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
 }
