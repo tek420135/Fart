@@ -13,8 +13,10 @@
   box-sizing: border-box;
 }
 
+[tabindex="-1"]:focus { outline: none; }
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
 }
 
 body {
@@ -89,7 +91,8 @@ nav a {
 }
 
 nav a:hover,
-nav a:focus-visible {
+nav a:focus-visible,
+nav a[aria-current="page"] {
   color: var(--mint);
 }
 
@@ -168,6 +171,21 @@ address {
 .btn.ghost {
   background: rgba(255, 255, 255, 0.08);
 }
+
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 3.2rem;
+  height: 3.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+.back-to-top[hidden] { display: flex; opacity: 0; visibility: hidden; pointer-events: none; }
+.back-to-top:hover { transform: translateY(-4px); }
 
 .badge-row {
   list-style: none;

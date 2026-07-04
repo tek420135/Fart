@@ -10,24 +10,29 @@ inPageLinks.forEach((link) => {
 
     event.preventDefault();
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    target.focus({ preventScroll: true });
   });
 });
 
+const activeSections = new Set();
 const observer = new IntersectionObserver(
   (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      const id = entry.target.getAttribute('id');
-      navLinks.forEach((link) => {
-        const active = link.getAttribute('href') === `#${id}`;
-        link.setAttribute('aria-current', active ? 'page' : 'false');
-      });
-    });
+    entries.forEach((e) => e.isIntersecting ? activeSections.add(e.target) : activeSections.delete(e.target));
+    const sorted = [...activeSections].sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top);
+    const activeId = sorted[0]?.getAttribute('id');
+    navLinks.forEach((l) => l.getAttribute('href') === `#${activeId}` ? l.setAttribute('aria-current', 'page') : l.removeAttribute('aria-current'));
   },
   { rootMargin: '-45% 0px -45% 0px', threshold: 0 }
 );
 
 sections.forEach((section) => observer.observe(section));
+
+const backToTop = document.querySelector('.back-to-top');
+if (backToTop) {
+  window.addEventListener('scroll', () => {
+    window.scrollY > 400 ? backToTop.removeAttribute('hidden') : backToTop.setAttribute('hidden', '');
+  });
+}
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
