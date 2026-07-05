@@ -10,22 +10,20 @@ inPageLinks.forEach((link) => {
 
     event.preventDefault();
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    target.setAttribute('tabindex', '-1');
+    target.focus({ preventScroll: true });
   });
 });
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      const id = entry.target.getAttribute('id');
-      navLinks.forEach((link) => {
-        const active = link.getAttribute('href') === `#${id}`;
-        link.setAttribute('aria-current', active ? 'page' : 'false');
-      });
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    const id = entry.target.getAttribute('id');
+    navLinks.forEach((l) => {
+      l.getAttribute('href') === `#${id}` ? l.setAttribute('aria-current', 'page') : l.removeAttribute('aria-current');
     });
-  },
-  { rootMargin: '-45% 0px -45% 0px', threshold: 0 }
-);
+  });
+}, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
 
 sections.forEach((section) => observer.observe(section));
 
@@ -38,11 +36,15 @@ if ('serviceWorker' in navigator) {
 }
 
 if (window.gsap) {
-  window.gsap.from('.section', {
-    opacity: 0,
-    y: 20,
-    duration: 0.55,
-    stagger: 0.05,
-    ease: 'power2.out'
+  window.gsap.from('.section', { opacity: 0, y: 20, duration: 0.55, stagger: 0.05, ease: 'power2.out' });
+}
+
+const btt = document.getElementById('back-to-top');
+if (btt) {
+  window.addEventListener('scroll', () => btt.toggleAttribute('hidden', window.scrollY <= 400));
+  btt.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const h = document.getElementById('hero');
+    if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
   });
 }
