@@ -15,6 +15,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
 }
 
 body {
@@ -89,7 +90,8 @@ nav a {
 }
 
 nav a:hover,
-nav a:focus-visible {
+nav a:focus-visible,
+nav a[aria-current='page'] {
   color: var(--mint);
 }
 
@@ -218,6 +220,15 @@ blockquote {
 footer nav {
   margin-bottom: 0.8rem;
 }
+
+#back-to-top {
+  position: fixed; bottom: 1.5rem; right: 1.5rem; width: 3rem; height: 3rem; border-radius: 50%;
+  border: 1px solid var(--line); background: var(--glass); backdrop-filter: blur(10px);
+  color: var(--mint); font-size: 1.5rem; cursor: pointer; z-index: 100;
+  display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;
+}
+#back-to-top:hover, #back-to-top:focus-visible { background: var(--mint); color: var(--bg); transform: translateY(-5px); }
+#back-to-top[hidden] { display: none; }
 
 @media (max-width: 760px) {
   header.shell {
